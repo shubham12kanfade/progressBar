@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <style>
+        #container{
+        height: 20px;
+        width: 500px;
+        outline: 2px solid red;
+        position: relative;
+        margin-left: 400px;
+        margin-top: 100px;
+    }
+    #guy
+    {
+        height: 89%;
+        width: 5px;
+        border: 1px solid white;
+        background-color: blue;
+        position: relative;
+    }
+    </style>
+    <script>
+        window.onload = function () {
+            var smallSquare = document.getElementById("guy");
+            var barWidth = 0;
+            var speed =90;
+            var per =0;
+
+            //Initilize intervals
+            var startProgressInterval;
+
+           // call functions by applying interval
+            startProgressInterval = setInterval(startProgress, speed);
+            function startProgress() {
+                per +=0.81;
+                document.getElementById("demo").innerHTML ="100% of "+ parseInt(per)+"%";
+
+                barWidth = barWidth+4;
+                smallSquare.style.width = barWidth;
+                if(barWidth==496)
+                {
+                    clearInterval(startProgressInterval);
+                }
+            }
+        }
+        </script>
+</head>
+
+<body>
+    <div id="container">
+        <div id="guy"></div>
+    </div>
+    <div id="demo" style="margin-left: 500px"></div>
+</body>
+
+</html>
